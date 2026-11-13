@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use builtnet, please cite the software and the paper."
+title: "builtnet: construction rules of register-based population networks"
+authors:
+  - family-names: "Al Mamun"
+    given-names: "S M Abdulla"
+version: 0.1.0
+date-released: 2026-11-13
+license: MIT
+preferred-citation:
+  type: article
+  title: "Built, not observed: construction rules and the comparability of register-based population networks"
+  authors:
+    - family-names: "Al Mamun"
+      given-names: "S M Abdulla"
+  year: 2026
+  notes: "Preprint, 13 November 2026"

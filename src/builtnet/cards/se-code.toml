@@ -1,0 +1,11 @@
+# Construction card: as se, with the link-function constants of the builders' released scripts.
+[card]
+name = "SE-like+kin, code constants"
+network = "Swedish register network, constants of the released construction scripts (28 October 2026)"
+sources = ["SE25", "SETH", "released scripts"]
+base = "se"
+
+[rules]
+work_cap = "se_k_code"
+building_cap = "se_k_code"
+school_cap = "se_k_code"

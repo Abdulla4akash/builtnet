@@ -1,0 +1,12 @@
+# Construction card: Danish network, reading b of the colleague sampling (random pairs, mean 100).
+[card]
+name = "DK-like (pairs)+kin"
+network = "Danish register network, alternative reading of the colleague sampling"
+sources = ["DK25", "DK25S"]
+base = "dk"
+
+[rules]
+work_select = "random_pairs"
+
+[provenance]
+work_select = { status = "inferred", source = "DK25S p.8; reading b" }

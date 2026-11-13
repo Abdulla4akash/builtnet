@@ -1,0 +1,37 @@
+# Construction card: Swedish population-scale network (Panayiotou et al. 2025; Wohlert 2024).
+[card]
+name = "SE-like+kin"
+network = "Swedish register network, 2017, residents aged 15 and over"
+sources = ["SE25", "SETH"]
+left_out = ["the probability rule for workplaces that are too big or remote", "the split of school groups of 1,000 or more by field of study"]
+
+[rules]
+layers = ["household", "neighbour", "school", "work", "kin"]
+min_age = 15
+work_unit = "site_if_large"
+work_split_min = 200
+work_cap = "se_k"
+work_select = "random"
+neighbour_mode = "building"
+building_cap = "se_k"
+building_with_household = true
+school_unit = "graduation_cohort"
+school_max_years_since = 19
+school_cap = "se_k"
+school_drop_over = 10000
+kin_types = ["parent", "sibling", "partner", "grandparent", "aunt_uncle", "cousin"]
+kin_parent_gap = [15, 60]
+kin_away_max_child_age = 37
+kin_partner_max_gap = 13
+
+[provenance]
+min_age = { status = "documented", source = "SE25 p.2" }
+work_unit = { status = "documented", source = "SE25 p.10; SETH p.41: companies of 200 or more split into workplaces" }
+work_cap = { status = "inferred", source = "SETH: fitted link function; sign of the exponent and rounding inferred" }
+neighbour_mode = { status = "documented", source = "SE25 p.10; SETH pp.40-41: same property" }
+building_with_household = { status = "inferred", source = "SE25 Figure 1: almost nobody has no neighbour tie" }
+school_unit = { status = "documented", source = "SE25 pp.9-10: level, municipality and graduation year" }
+school_max_years_since = { status = "assumed", source = "a 19-year window; the released scripts keep every cohort (card se-code-nowindow)" }
+school_drop_over = { status = "documented", source = "SE25 p.10" }
+kin_types = { status = "documented", source = "SE25 p.9: inferred from co-residence and age gaps" }
+kin_away_max_child_age = { status = "assumed", source = "approximation of 'parent and child shared a home between 2000 and 2017'" }

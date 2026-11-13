@@ -1,0 +1,15 @@
+# Construction card: Danish population-scale network (Cremers et al. 2025), reading a of the colleague sampling.
+[card]
+name = "DK-like+kin"
+network = "Danish register network, yearly 2008 to 2021"
+sources = ["DK25", "DK25S"]
+base = "nl-2018"
+left_out = ["people with a fictional workplace", "flatmates counted as neighbours"]
+
+[rules]
+work_unit = "site"
+work_select = "random_capped"
+
+[provenance]
+work_unit = { status = "documented", source = "DK25 p.3: workplace on 30 November" }
+work_select = { status = "inferred", source = "DK25 p.3, DK25S p.8: a random sample of 100, made two-way; the algorithm is not published (reading a: nobody above 100)" }

@@ -1,0 +1,9 @@
+# Construction card: as se-code, with every graduation cohort kept, as in the released scripts.
+[card]
+name = "SE-like+kin, code constants, no cohort window"
+network = "Swedish register network, school layer as in the released scripts"
+sources = ["SE25", "released scripts"]
+base = "se-code"
+
+[rules]
+school_max_years_since = "none"

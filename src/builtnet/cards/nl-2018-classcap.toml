@@ -1,0 +1,12 @@
+# Construction card: as nl-2018, with a random selection of 100 classmates for pupils in year groups above 101.
+[card]
+name = "NL-2018+kin, classmates capped at 100"
+network = "Statistics Netherlands person network, 2018 file, alternative reading of the school layer"
+sources = ["CBS22", "Bos et al. 2022"]
+base = "nl-2018"
+
+[rules]
+school_cap = 100
+
+[provenance]
+school_cap = { status = "inferred", source = "reported in applications of the first network; not in the discussion paper" }

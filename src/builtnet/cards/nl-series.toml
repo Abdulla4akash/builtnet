@@ -1,0 +1,16 @@
+# Construction card: Statistics Netherlands yearly person-network files (2009 onwards).
+[card]
+name = "NL-series+kin"
+network = "Statistics Netherlands yearly person-network files"
+sources = ["CBS23", "CAT-COL", "CAT-BUR", "CAT-KLA", "CAT-HUI", "CAT-FAM"]
+base = "nl-2018"
+left_out = ["monthly pooling of colleagues over jobs", "the second neighbour relation (up to 20 random people within 200 m)", "step-family and partners of extended kin", "addresses (households stand in)"]
+
+[rules]
+neighbour_radius = "none"
+kin_types = ["parent", "sibling", "grandparent", "aunt_uncle", "cousin", "co_parent", "partner", "in_law"]
+
+[provenance]
+neighbour_radius = { status = "documented", source = "CAT-BUR pp.6-7: the 10 nearest addresses, no distance limit" }
+kin_types = { status = "documented", source = "CAT-FAM p.6: partners, in-laws and step-family added" }
+work_cap = { status = "inferred", source = "CAT-COL pp.6-7: 100 per person over all employers; a later CBS publication says 100 per company" }

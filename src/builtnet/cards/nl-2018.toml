@@ -1,0 +1,28 @@
+# Construction card: Statistics Netherlands person network, 2018 file.
+# Fields map one to one onto builtnet.rulesets.RuleSet. status: documented | inferred | assumed.
+[card]
+name = "NL-2018+kin"
+network = "Statistics Netherlands person network, first version (reference date 1 October 2018)"
+sources = ["CBS22", "ESR23"]
+left_out = ["institutional households", "direction of edges (the union is used, as in the analysis papers)", "split of siblings into full, half and unknown"]
+
+[rules]
+layers = ["household", "neighbour", "school", "work", "kin"]
+work_unit = "employer"
+work_cap = 100
+work_select = "nearest"
+neighbour_mode = "knn"
+neighbour_k = 10
+neighbour_radius = 50.0
+school_unit = "year"
+kin_types = ["parent", "sibling", "grandparent", "aunt_uncle", "cousin", "co_parent"]
+
+[provenance]
+work_unit = { status = "documented", source = "CBS22 p.8" }
+work_cap = { status = "documented", source = "CBS22 p.8: all pairs up to 101 employees, otherwise the 100 nearest" }
+work_select = { status = "documented", source = "CBS22 p.8: nearest by home address, random tie-break" }
+neighbour_k = { status = "documented", source = "CBS22 p.7" }
+neighbour_radius = { status = "documented", source = "CBS22 p.7: less than 50 m" }
+school_unit = { status = "inferred", source = "CBS22 p.8, Table 2.2: classes are approximated by school, location and year; the year group stands in" }
+school_cap = { status = "assumed", source = "CBS22 names no cap; applications of the file report a random 100 (card nl-2018-classcap)" }
+kin_types = { status = "documented", source = "CBS22 p.3; ESR23 p.3: from legal parent-child records, no relations by marriage" }
