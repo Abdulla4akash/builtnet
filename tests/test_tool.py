@@ -36,6 +36,9 @@ def test_variant_cards_change_only_what_they_say():
     assert cards.provenance("se-code")["school_drop_over"]["status"] == "documented"  # inherited from se
     assert "SE25" in cards.describe("se-code-nowindow")["all_sources"]
     assert set(PRESETS) <= set(cards.available())
+    d, t = cards.load("dk"), cards.load("dk-twoway")
+    assert [f.name for f in dataclasses.fields(R.RuleSet) if getattr(d, f.name) != getattr(t, f.name)] == ["name", "work_select"]
+    assert t.work_select == "random" and cards.provenance("dk-twoway")["work_select"]["status"] == "inferred"
 
 
 def test_triangle_count_matches_brute_force():

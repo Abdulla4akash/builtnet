@@ -1,0 +1,16 @@
+# Construction card: Danish network, reading c of the colleague sampling (each person draws 100, ties made two-way).
+# The published colleague edge count for 2021 (DK25S Table 1: 125.07 million) is reproduced within 2.4% by this
+# reading from Statistics Denmark's workplace sizes (StatBank ERHV3), against 30.6% too few under reading a.
+# Under this reading nobody in a large workplace has fewer than 100 colleagues, which DK25S p.8 contradicts
+# ("some (but few)"); the algorithm is not published. See docs/rule-sets.md.
+[card]
+name = "DK-like (two-way)+kin"
+network = "Danish register network, alternative reading of the colleague sampling"
+sources = ["DK25", "DK25S"]
+base = "dk"
+
+[rules]
+work_select = "random"
+
+[provenance]
+work_select = { status = "inferred", source = "DK25S Table 1 (published edge count) against StatBank ERHV3 workplace sizes; reading c" }
