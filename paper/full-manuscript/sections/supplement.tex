@@ -1,0 +1,81 @@
+\section{Supplement. Worked examples and evidence provenance}\label{sec:provenance}
+
+\subsection{Apply a card to consistent membership arrays}
+
+The ordinary entry point separates inputs from the rule choice. The following usage uses the same arrays and seed for the two Danish cards. The arrays must already be aligned to one row per person. A study using administrative data can run the code in an environment that already holds the relevant membership tables.
+
+\begin{lstlisting}
+from builtnet import cards
+from builtnet.rulesets import build
+from builtnet.tables import world_from_tables
+
+people = world_from_tables(
+    household=household_id, home_xy=home_xy_metres,
+    employer=company_id, site=workplace_id,
+    school=school_id, school_level=education_level,
+    school_year=year_group, parent=parent_row_ids, age=age,
+)
+hard_cap = build(people, cards.load("dk"), seed=1)
+two_way = build(people, cards.load("dk-twoway"), seed=1)
+
+print(hard_cap.n_edges("work"), two_way.n_edges("work"))
+print(cards.provenance("dk-twoway")["work_select"])
+\end{lstlisting}
+
+The same person indices remain valid for both graphs. The printed counts are unique unordered edges in the work layer. Cross-layer overlap has no effect on these two numbers. The provenance lookup returns the source and status of the field that changed. Before applying the code, inspect the mapping from school or workplace identifiers to actual groups. Rows containing parents or partner references must use the linked person indices in the same array, and the absence of a recorded parent is encoded with a negative sentinel.
+
+\subsection{Run the packaged example and make the aggregation explicit}
+
+The small example in Table~\ref{tab:example} uses the existing generator and cards. The following version makes the clustering denominator visible. The finite-case average requires at least one valid coefficient. Users can also inspect the underlying descriptor arrays.
+
+\begin{lstlisting}
+import numpy as np
+from builtnet import cards, scenarios, world
+from builtnet.descriptors import position_descriptors
+from builtnet.rulesets import build
+
+people = world.generate(scenarios.base("small"), seed=1)
+for name in ("nl-2018", "nl-series", "dk", "se"):
+    net = build(people, cards.load(name), seed=1)
+    desc = position_descriptors(net)
+    coeff = desc["clustering"][net.active]
+    eligible = int(net.active.sum())
+    defined = int(np.isfinite(coeff).sum())
+    print(name, eligible, defined, np.nanmean(coeff))
+\end{lstlisting}
+
+If only group-size counts can be shared, the edge-free entry point \texttt{theory.group\_degree} returns the expected degree for the chosen projection. For a spatial rule, the caller must choose the pattern represented by the lookup grid. The table interpolation and its grid bounds belong in the reporting record. Where the comparison involves population size, year, union semantics or attendance definitions, Table~\ref{tab:limits} gives the corresponding documentation fields. Table~\ref{tab:release-artifacts} identifies the artifacts used to generate this article.
+\input{tables/limits}
+\input{tables/release-artifacts}
+
+\subsection{Software version, measurements and captured failures}
+
+The software baseline is commit \texttt{180383e} (13 November 2026), which introduced the release, cards and theory. Commit \texttt{e90714d} on the same date added the Danish two-way card after the companion aggregate discrepancy and is the revision used here. The software checkout has no separate pre-outcome protocol, freeze tag or empirical stopping rule. The tests, theory data and built-in input configurations are fixed by the revision. The package treats the post hoc provenance of the two-way card as inferred.
+
+The original release logs contain two attempts on 13 November. In \path{tool-24688722.out}, pytest stopped at collection because pandas was missing. The same log contains six identical triangle-check outcomes against igraph, spanning compact and dispersed full-size examples under three cards. The subsequent \path{tool-24688857.out} shows a completed regression run with a skip. The old console summary does not identify the skipped case. The current rerun exercised the optional library comparison using an existing environment with its dependencies installed. It recorded \TestCount{} passes and \SkippedTests{} skips. The initial timing capture stopped on a repeat-equality check because two literal IEEE NaN means compare unequal. The subsequent capture represented undefined README means explicitly and computed a second mean on defined rows. The two design parameters and the existing algorithms were unchanged. Raw logs and graphs are excluded from the paper source.
+
+The local measurements were taken on an Intel Xeon Gold 6130 with \CpuCount{} allocated cores and the native numerical-library thread limit fixed to \ThreadCount{}. The check used Python \PythonVersion{}, NumPy \NumpyVersion{} and SciPy \ScipyVersion{}. The complete pytest subprocess took \TestTime{}\,s in the recorded run, including interpreter and test setup. The timings for the example stages exclude pytest. Their observed ranges describe repeat variability on one allocation and do not measure parallel speedup or peak memory.
+
+\subsection{Companion records distinguish earlier results from later readings}
+
+The companion pre-registration \path{PREDICTIONS.md} was committed as \texttt{9bc1375} on 13 November 2026, before computing predictions. The published aggregate targets were already known. Prediction code was committed as \texttt{a859bec} and checked on synthetic test inputs before the run. The outcomes are in \path{reports/predictions/predictions.json}. Criteria for the subset used here were a relative error within the recorded tolerance for the Dutch means and medians and for Danish undirected colleague edges. The companion's three failures were the secondary-school mean and median and the Danish colleague total. Two deviations were recorded. The neighbour median was also checked analytically, while the registered simulated value was retained for the verdict. The analyst spread Swedish employee counts uniformly over the sizes within each published closed class where the plan left the choice open. The analysis after seeing the Danish failure is stored in \path{reports/predictions/posthoc.json}. It retained the original verdict. It also considered full linking and nominations with replacement. The latter gave a closer aggregate than the hard cap but too many below-cap degrees in workplaces just over the threshold to reconcile all the source statements.
+
+The intermediary companion records provide context for the software catalogue. The original comparison froze its main experiment at \texttt{2ab8afa}, the Sweden-like check at \texttt{3339ced}, and the external check at \texttt{0921ca6}. Two development runs had been superseded before those checks because the synthetic reference did not fit the intended calibration and the Swedish card approximation was incomplete. Two external development manifests recorded a later hash when files were synced during their run. The evaluation used an unchanged copy. The summary script was extended after approval to print registered verdict inputs and a secondary table. Thresholds and evaluation seeds were retained. The findings include a lack of reliable group-gap sign reversal, no network descriptor that met both stability and sensitivity requirements, a failed strict simulator correction for the neighbour rule, and a failed external locality criterion for the colleague rule. The original development result also did not link nearest-colleague closure to residential dispersion. The observed-contact analysis is documented in the separate companion article. Its pre-registration \texttt{b30ba07} preceded opening the contact files, and the school degree-agreement result passed narrowly for the high-school classes \citep{almamunbuilt2026,almamunpredicting2026}.
+
+The 13 November sensitivity addendum \texttt{51533bd} tested the cap interpretation for Dutch school and alternative readings of the Swedish source on the already used evaluation populations. Its new specification followed earlier results and development checks. It is a post hoc sensitivity analysis for the original comparison, even though the evaluation criteria for that addendum were fixed before its rerun. The Danish comparison under the added Dutch cap failed its criterion (C2). The Danish addendum \texttt{9cc9863} followed the aggregate mismatch and reused the evaluation populations with paired runs. The Danish pair failed K1 under the two-way sampler, while the group-ordering verdict persisted without a qualifying sign reversal. These changes are why the catalogue retains distinct readings.
+
+The same \texttt{9cc9863} revision froze the subsequent theory evaluation on fresh seeds 2000--2019. Its group and merged-network criteria passed. The nearest-home colleague clustering test failed narrowly, the neighbour degree in the Sweden-like setting failed for the no-radius Dutch card, the Danish clustering share failed its tolerance and the analytic correction failed for the Dutch-series pair. Earlier development evidence had placed the nearest-home check within tolerance. The later evaluation result takes precedence for that verdict. The software paper uses these results to delimit the approximations. It leaves the complete evaluation designs, intervals and outcome tables with their companion manuscripts.
+
+\subsection{Regenerate the paper without running the examples}
+
+From \path{paper/full-manuscript}, run the following commands with Python 3.11 or newer and Matplotlib available. They use the checked aggregates and the existing package theory grid. The capture script is separate and runs the original tests and timing examples only when explicitly invoked. The article does not require any earlier scratch paths at build time.
+
+\begin{lstlisting}[language={}]
+python -B src/check_numbers.py --check
+python -B src/make_tables.py
+python -B src/make_figures.py
+pdflatex -halt-on-error -interaction=nonstopmode main.tex
+bibtex main
+pdflatex -halt-on-error -interaction=nonstopmode main.tex
+pdflatex -halt-on-error -interaction=nonstopmode main.tex
+\end{lstlisting}

@@ -12,3 +12,4 @@
 - 2026-11-26 — Completed Related work and the comparison of prior artefacts with builtnet.
 - 2026-11-26 — Completed Introduction, Discussion, Limitations, Conclusion and the availability statement.
 - 2026-11-26 — Completed the abstract with quantitative findings and the claim boundary.
+- 2026-11-26 — Completed the Supplement with worked code, freeze and amendment history, what failed and how to regenerate the paper.
