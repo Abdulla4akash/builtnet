@@ -1,0 +1,315 @@
+{
+  "environment": {
+    "python": "3.13.15",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "cpu": "Intel(R) Xeon(R) Gold 6130 CPU @ 2.10GHz",
+    "cpus": 2,
+    "thread_limit": 1,
+    "seed": 1,
+    "repeats": 3,
+    "source_commit": "e90714d250969b9eaa05646eaffbdc6cc4c846b0"
+  },
+  "tests": {
+    "modules": {
+      "test_affiliation": {
+        "passed": 3,
+        "skipped": 0
+      },
+      "test_descriptors": {
+        "passed": 9,
+        "skipped": 0
+      },
+      "test_harmonise_positions": {
+        "passed": 6,
+        "skipped": 0
+      },
+      "test_kin": {
+        "passed": 14,
+        "skipped": 0
+      },
+      "test_measures": {
+        "passed": 3,
+        "skipped": 0
+      },
+      "test_rules": {
+        "passed": 15,
+        "skipped": 0
+      },
+      "test_theory": {
+        "passed": 10,
+        "skipped": 0
+      },
+      "test_tool": {
+        "passed": 8,
+        "skipped": 0
+      },
+      "test_world": {
+        "passed": 11,
+        "skipped": 0
+      }
+    },
+    "skip_reasons": [],
+    "wall_seconds": 11.416342557407916
+  },
+  "scales": {
+    "small": {
+      "people": 9729,
+      "households": 4500,
+      "generation_seconds": [
+        0.18171202763915062,
+        0.17845810297876596,
+        0.17897698283195496
+      ],
+      "cards": {
+        "nl-2018": {
+          "active": 9729,
+          "mean_degree": 87.71363963408366,
+          "readme_clustering": null,
+          "clustering_defined": 9725,
+          "mean_clustering": 0.49094994430612693,
+          "unique_edges": 426683,
+          "layers": {
+            "household": 8787,
+            "neighbour": 114860,
+            "school": 70424,
+            "work": 156263,
+            "kin": 85588
+          }
+        },
+        "nl-series": {
+          "active": 9729,
+          "mean_degree": 96.39469626888683,
+          "readme_clustering": 0.42913349523047456,
+          "clustering_defined": 9729,
+          "mean_clustering": 0.42913349523047456,
+          "unique_edges": 468912,
+          "layers": {
+            "household": 8787,
+            "neighbour": 136395,
+            "school": 70424,
+            "work": 156263,
+            "kin": 107930
+          }
+        },
+        "dk": {
+          "active": 9729,
+          "mean_degree": 79.51608592866687,
+          "readme_clustering": null,
+          "clustering_defined": 9725,
+          "mean_clustering": 0.45999730199736927,
+          "unique_edges": 386806,
+          "layers": {
+            "household": 8787,
+            "neighbour": 114860,
+            "school": 70424,
+            "work": 115860,
+            "kin": 85588
+          }
+        },
+        "se": {
+          "active": 7940,
+          "mean_degree": 21.853652392947104,
+          "readme_clustering": null,
+          "clustering_defined": 6634,
+          "mean_clustering": 0.4152411792048974,
+          "unique_edges": 86759,
+          "layers": {
+            "household": 4464,
+            "neighbour": 28003,
+            "school": 18425,
+            "work": 34330,
+            "kin": 9506
+          }
+        }
+      },
+      "seconds": {
+        "nl-2018": [
+          [
+            0.152059406042099,
+            2.6510066874325275
+          ],
+          [
+            0.13409243989735842,
+            2.689987739548087
+          ],
+          [
+            0.12831728346645832,
+            2.6501948311924934
+          ]
+        ],
+        "nl-series": [
+          [
+            0.14354182872921228,
+            3.0947157768532634
+          ],
+          [
+            0.1446362193673849,
+            3.0380061138421297
+          ],
+          [
+            0.14456657692790031,
+            3.024248380213976
+          ]
+        ],
+        "dk": [
+          [
+            0.14647233486175537,
+            2.3599203070625663
+          ],
+          [
+            0.14870760682970285,
+            2.3599708043038845
+          ],
+          [
+            0.14589665923267603,
+            2.3532482255250216
+          ]
+        ],
+        "se": [
+          [
+            0.051853323355317116,
+            0.2725248523056507
+          ],
+          [
+            0.05144804436713457,
+            0.27795825246721506
+          ],
+          [
+            0.0523093705996871,
+            0.2756061451509595
+          ]
+        ]
+      }
+    },
+    "main": {
+      "people": 96712,
+      "households": 45000,
+      "generation_seconds": [
+        7.298852946609259,
+        7.312870300374925,
+        7.3665423123165965
+      ],
+      "cards": {
+        "nl-2018": {
+          "active": 96712,
+          "mean_degree": 91.78523864670362,
+          "readme_clustering": null,
+          "clustering_defined": 96601,
+          "mean_clustering": 0.5034216986445554,
+          "unique_edges": 4438367,
+          "layers": {
+            "household": 87479,
+            "neighbour": 1143290,
+            "school": 772483,
+            "work": 1833966,
+            "kin": 685855
+          }
+        },
+        "nl-series": {
+          "active": 96712,
+          "mean_degree": 99.24334105385061,
+          "readme_clustering": 0.446211742810502,
+          "clustering_defined": 96712,
+          "mean_clustering": 0.446211742810502,
+          "unique_edges": 4799011,
+          "layers": {
+            "household": 87479,
+            "neighbour": 1332570,
+            "school": 772483,
+            "work": 1833966,
+            "kin": 870163
+          }
+        },
+        "dk": {
+          "active": 96712,
+          "mean_degree": 82.07525436347092,
+          "readme_clustering": null,
+          "clustering_defined": 96601,
+          "mean_clustering": 0.45672172842922537,
+          "unique_edges": 3968831,
+          "layers": {
+            "household": 87479,
+            "neighbour": 1143290,
+            "school": 772483,
+            "work": 1355258,
+            "kin": 685855
+          }
+        },
+        "se": {
+          "active": 78831,
+          "mean_degree": 28.831373444457128,
+          "readme_clustering": null,
+          "clustering_defined": 66236,
+          "mean_clustering": 0.3355382690257677,
+          "unique_edges": 1136403,
+          "layers": {
+            "household": 44140,
+            "neighbour": 277552,
+            "school": 291346,
+            "work": 513510,
+            "kin": 87408
+          }
+        }
+      },
+      "seconds": {
+        "nl-2018": [
+          [
+            1.5499714575707912,
+            42.75694715138525
+          ],
+          [
+            1.4800729723647237,
+            41.85582256410271
+          ],
+          [
+            1.4917754270136356,
+            41.86548891849816
+          ]
+        ],
+        "nl-series": [
+          [
+            1.6545150354504585,
+            48.86351869255304
+          ],
+          [
+            1.6233964385464787,
+            49.35903003439307
+          ],
+          [
+            1.6001671068370342,
+            48.25792482122779
+          ]
+        ],
+        "dk": [
+          [
+            1.6539094923064113,
+            37.564268382266164
+          ],
+          [
+            1.670937535353005,
+            37.2856862032786
+          ],
+          [
+            1.6655912809073925,
+            37.15773851517588
+          ]
+        ],
+        "se": [
+          [
+            0.6651957798749208,
+            7.455787059850991
+          ],
+          [
+            0.6695409854874015,
+            7.145443277433515
+          ],
+          [
+            0.6724128341302276,
+            7.721054129302502
+          ]
+        ]
+      }
+    }
+  }
+}

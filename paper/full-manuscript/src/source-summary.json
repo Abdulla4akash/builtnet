@@ -1,0 +1,138 @@
+{
+  "registered": {
+    "N4b": {
+      "value": 38.76,
+      "unit": "mean out-degree",
+      "tol": 0.1,
+      "label": "test",
+      "prediction": 39.10793891708051,
+      "rel_error": 0.00897675224665928,
+      "passed": true
+    },
+    "N4c": {
+      "value": 34,
+      "unit": "median out-degree",
+      "tol": 0.1,
+      "label": "test",
+      "prediction": 34.0,
+      "rel_error": 0.0,
+      "passed": true
+    },
+    "N5b": {
+      "value": 65.1,
+      "unit": "mean out-degree",
+      "tol": 0.2,
+      "label": "test",
+      "prediction": 149.05246872453895,
+      "rel_error": 1.2895924535259442,
+      "passed": false
+    },
+    "N5c": {
+      "value": 51,
+      "unit": "median out-degree",
+      "tol": 0.2,
+      "label": "test",
+      "prediction": 130.0,
+      "rel_error": 1.549019607843137,
+      "passed": false
+    },
+    "D1b": {
+      "value": 125.07,
+      "unit": "million undirected edges",
+      "tol": 0.15,
+      "label": "test",
+      "prediction": 86.84492929785823,
+      "rel_error": -0.3056294131457725,
+      "passed": false
+    }
+  },
+  "summary": {
+    "tests": 19,
+    "passed": 16,
+    "failed": [
+      "N5b",
+      "N5c",
+      "D1b"
+    ]
+  },
+  "primary_quantiles": {
+    "predicted": [
+      11.0,
+      15.0,
+      23.0,
+      34.0,
+      50.0,
+      69.0,
+      83.0,
+      119.0
+    ],
+    "published": [
+      10,
+      14,
+      22,
+      34,
+      50,
+      68,
+      82,
+      118
+    ]
+  },
+  "secondary_quantiles": {
+    "predicted": [
+      30.0,
+      45.0,
+      78.0,
+      130.0,
+      201.0,
+      280.0,
+      320.0,
+      455.0
+    ],
+    "published": [
+      7,
+      11,
+      24,
+      51,
+      90,
+      138,
+      172,
+      265
+    ]
+  },
+  "danish_readings": {
+    "a_capped_draw_registered": {
+      "edges_million": 86.84492929785823,
+      "mean_degree_100plus": 99.87959525286398,
+      "rel_error_vs_published": -0.3056294131457725
+    },
+    "b_random_pairs_mean_100": {
+      "edges_million": 86.91039274182498,
+      "mean_degree_100plus": 99.99394417684542,
+      "rel_error_vs_published": -0.30510599870612476
+    },
+    "c_100_random_out_links_made_two_way": {
+      "edges_million": 122.0136817572677,
+      "mean_degree_100plus": 161.3109645457135,
+      "rel_error_vs_published": -0.0244368612995306
+    },
+    "d_full_linking_no_cap": {
+      "edges_million": 1028.2184156546327,
+      "mean_degree_100plus": 1744.233126121649,
+      "rel_error_vs_published": 7.221143484885527
+    },
+    "e_100_draws_with_replacement_made_two_way": {
+      "edges_million": 113.36398806451271,
+      "mean_degree_100plus": 146.2020257761924,
+      "rel_error_vs_published": -0.09359568190203316
+    },
+    "e_share_below_100_by_n": {
+      "102": 0.9999939291566856,
+      "120": 0.7174452138332831,
+      "150": 0.024488022116049116,
+      "200": 5.163828798445715e-05,
+      "300": 2.7117451590892257e-08,
+      "500": 4.045664747454638e-11
+    },
+    "mean_degree_100plus_needed_for_published": 166.64961893393667
+  }
+}
