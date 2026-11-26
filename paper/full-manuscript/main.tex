@@ -1,0 +1,69 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=26mm,includefoot]{geometry}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{booktabs,array}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage[round,authoryear,sort]{natbib}
+\usepackage{placeins}
+\usepackage{listings}
+\usepackage[hyphens]{url}
+\usepackage[colorlinks,linkcolor=navy,citecolor=navy,urlcolor=navy]{hyperref}
+\definecolor{navy}{HTML}{125477}
+\definecolor{tableblue}{HTML}{E4F0F6}
+\definecolor{codebg}{HTML}{F3F6F8}
+\captionsetup{font=small,labelfont=bf,margin=4mm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.18}
+\setcounter{topnumber}{4}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{6}
+\renewcommand{\topfraction}{.92}
+\renewcommand{\bottomfraction}{.82}
+\renewcommand{\textfraction}{.08}
+\renewcommand{\floatpagefraction}{.65}
+\lstset{language=Python,basicstyle=\ttfamily\small,backgroundcolor=\color{codebg},
+        columns=fullflexible,breaklines=true,showstringspaces=false,
+        frame=single,rulecolor=\color{tableblue},xleftmargin=4pt,xrightmargin=4pt}
+\newcommand{\builtnet}{\textit{builtnet}}
+\newcommand{\PaperFigure}[2]{%
+  \begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=.84\linewidth]{figures/#1.pdf}
+    \caption{#2}\label{fig:#1}
+  \end{figure}%
+}
+\input{numbers}
+\title{\builtnet{}: Executable construction rules for register-based population networks}
+\author{S M Abdulla Al Mamun\\[2pt]
+\small University of Manchester}
+% Add further authors and their affiliations here after author review.
+\date{\small Research draft for author review \textbullet{} 26 November 2026 \textbullet{} Not submitted}
+
+\begin{document}
+\maketitle
+\input{sections/abstract}
+\input{sections/introduction}
+\input{sections/related}
+\input{sections/methods}
+\input{sections/results}
+\input{sections/discussion}
+\input{sections/availability}
+\FloatBarrier
+\clearpage
+\begingroup
+\small\raggedright
+\setlength{\bibsep}{3pt plus 0.15pt}
+\bibliographystyle{plainnat}
+\bibliography{refs}
+\endgroup
+\clearpage
+\appendix
+\input{sections/supplement}
+\end{document}

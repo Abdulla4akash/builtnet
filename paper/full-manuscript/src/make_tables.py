@@ -159,7 +159,7 @@ def result_tables():
         'world': 'Synthetic membership and demographic constraints',
     }
     yield Table('tests', 'Release regression outcomes by test module. Counts include parametrised test cases.',
-                (.27, .12, .11, .40), ('Module', 'Passed', 'Skipped', 'Coverage'),
+                (.31, .10, .10, .39), ('Module', 'Passed', 'Skipped', 'Coverage'),
                 [(code(name), row['passed'], row['skipped'], coverage[name.removeprefix('test_')])
                  for name, row in sorted(data['tests']['modules'].items())])
     sample = data['scales']['small']
