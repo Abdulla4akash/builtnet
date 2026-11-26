@@ -6,3 +6,4 @@
 - 2026-11-26 — Assembled the reference set and verification ledger. The two companion author copies are cited as manuscripts and are excluded from the online verification count. Implemented number, table and figure generators; the runtime capture is in progress.
 - 2026-11-26 — Completed capture of the existing examples at 9,729 and 96,712 people and verified the numeric macros. All 79 release tests passed with the optional comparison dependencies. Retained the README's undefined ordinary clustering means and computed conditional means from the same saved results.
 - 2026-11-26 — Generated 20 shaded-header tables from the card catalogue, package checks and saved summary results.
+- 2026-11-26 — Generated 16 figures in PDF and PNG with a common colour-blind-safe palette. Each figure has an in-text reference and caption.
