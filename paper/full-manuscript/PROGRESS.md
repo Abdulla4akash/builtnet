@@ -9,3 +9,4 @@
 - 2026-11-26 — Generated 16 figures in PDF and PNG with a common colour-blind-safe palette. Each figure has an in-text reference and caption.
 - 2026-11-26 — Completed Methods, including the operator and table contracts, catalogue approximations, preregistration status and timing design.
 - 2026-11-26 — Completed Results, with pre-specified companion checks separated from exploratory demos, discrepancies and timings.
+- 2026-11-26 — Completed Related work and the comparison of prior artefacts with builtnet.

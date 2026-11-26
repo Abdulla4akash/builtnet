@@ -80,3 +80,4 @@ builtnet makes construction choices in register-based population networks inspec
 | luppi2024 | <https://api.crossref.org/works/10.1038/s41467-024-48781-5> | 2026-11-26 | abstract |
 | farine2022 | <https://api.crossref.org/works/10.1111/2041-210x.13741> | 2026-11-26 | abstract |
 | hart2022 | <https://api.crossref.org/works/10.1007/s00265-022-03254-x> | 2026-11-26 | abstract |
+| newman2001 | <https://api.crossref.org/works/10.1103/PhysRevE.64.026118> | 2026-11-26 | abstract and bipartite setting |
