@@ -1,0 +1,83 @@
+\section{Results}\label{sec:results}
+
+\subsection{The released operator tests and independent triangle check agree}
+\label{res:tests}
+\textit{Evidence status. Existing regression assertions fixed in the release. This is a software rerun without a pre-specified empirical outcome.}
+
+Can a user change a card field without changing unrelated parts of the projection (Q1)? The suite passed \TestCount{} cases across \TestModules{} modules with the optional comparison dependencies available (Table~\ref{tab:tests}). Five bundled cards matched the corresponding built-in presets field by field. The Dutch class-cap card changed only the school cap, apart from the descriptive name. The two-way Danish card changed only the workplace sampler, apart from the name. The Swedish tests checked inheritance of the published source labels and changes to the cohort window. A table round-trip reproduced person-level degree and clustering for two rule sets on the existing small fixture. That fixture tests the interface on consistent input keys. It does not cover the variety of national education hierarchies or missing-record conventions.
+\input{tables/tests}
+
+The sparse triangle count agreed with direct enumeration on the stored test design and with the independent igraph computation on six previously checked synthetic networks. The optional external comparison of library-weighted closure was exercised in this rerun. Agreement covers the specified algorithms. Agreement with an external implementation can coexist with a mismatch between competing definitions of the quantity being computed.
+
+\subsection{Four reference cards give different graphs on the same membership rows}
+\label{res:example}
+\textit{Evidence status. Exploratory software demonstration using the existing README workflow and its example design at both built-in scales.}
+
+Can the user change the rule set without regenerating memberships (Q2)? Each card receives the same \SmallPeople{} people from the small example. The Dutch 2018 result has \SmallDutchDegree{} distinct contacts per active person, compared with \SmallDanishDegree{} for the Danish hard-cap card and \SmallSwedishDegree{} for the Swedish card. The Swedish card averages over \SmallSwedishActive{} eligible people. Table~\ref{tab:example} gives both denominators and union counts, and Figure~\ref{fig:example-degree} shows the comparison at both sizes. The Swedish contrast includes its eligibility change. A comparison restricted to a common age mask would answer a different question.
+\input{tables/example}
+\PaperFigure{example-degree}{Mean distinct neighbours per active person in the two existing example presets. Each size uses one common input for all cards. The Swedish card applies an age gate.}
+
+The README's ordinary clustering mean is undefined whenever an active person has fewer than two neighbours. Table~\ref{tab:example} records that literal output and the mean among defined cases. Figure~\ref{fig:example-clustering} uses the latter. The Swedish card has defined clustering for \SmallSwedishDefined{} of its \SmallSwedishActive{} eligible rows. When reusing the example, the defined-case count belongs with the mean. Changing the denominator can change the comparison even when the operator is unchanged.
+\PaperFigure{example-clustering}{Mean local clustering of the union for active people with at least two distinct contacts. It measures closed alter pairs under the chosen graph definition.}
+
+The larger input separates the layers behind the total (Figure~\ref{fig:example-layers}, Table~\ref{tab:layers}). In the simplified card comparison the two Dutch releases share a workplace projection and differ in neighbourhood distance and kin categories. The Swedish school input uses completed education and municipality, while the Dutch baseline uses current-year groups. These cards vary several fields at once. To isolate one choice a user can compare a base card with an alternative that changes only that field.
+\PaperFigure{example-layers}{Layer edge counts in the main example. The bars count each undirected pair once per layer in which it is present.}
+\input{tables/layers}
+
+Summing layer counts double-counts a pair that appears in multiple contexts. Figure~\ref{fig:example-overlap} displays the excess number of layer incidences per hundred union edges. This is a graph-level quantity. A pair found in three layers contributes two extra incidences, so the ordinate differs from the percentage of pairs in multiple layers.
+\PaperFigure{example-overlap}{Additional layer incidences per hundred distinct pairs. This is the sum of layer edge counts minus the union count, divided by the union count.}
+
+\subsection{Random-nomination degree follows an exact expectation, while spatial projections require more information}
+\label{res:theory}
+\textit{Evidence status. The degree identity is analytic. The visual comparisons are exploratory summaries of archived tabulations. The external checks referenced below had their own pre-specified tolerances.}
+
+Can useful layer summaries be obtained before a graph is materialised (Q3)? The archived grid contains \GroupRows{} group cells and \NeighbourRows{} neighbourhood cells (Table~\ref{tab:grid}). The mean degree under random nominations tracks the exact expectation to within \RandomDegreeError\% over the archived cells (Figure~\ref{fig:group-random-degree}). The scale-free display uses $(n-1)/k$, since the directed nomination probability is its reciprocal. Well above the clique threshold, little nomination is mutual by chance, so degree approaches twice the nomination count. Close to the threshold nominations overlap more.
+\input{tables/grid}
+\PaperFigure{group-random-degree}{Mean union degree under independent random nominations. Symbols are the archived simulation cells and the line is the exact expectation conditional on group size and nomination count.}
+
+The approximation for local clustering has a largest absolute residual of \RandomClosureError{} in the same cells (Figure~\ref{fig:group-random-clustering}). In some small groups the residual is larger than the archived sampling uncertainty. The exact marginal pair probability alone lacks the conditioning on the ego's neighbour set.
+\PaperFigure{group-random-clustering}{Archived local clustering minus the marginal-probability approximation. Whiskers show twice the archived Monte Carlo standard error at each point.}
+
+At a common nomination cap, the two spatial models produce different degrees (Figure~\ref{fig:group-spatial-degree}). Both generally produce more than the nominal cap once nominations are united. The bounded sequential procedure stays near the cap and uniform nominations approach twice it. The spatial models also preserve substantially more within-layer clustering in the larger groups than the two nonspatial alternatives (Figure~\ref{fig:group-spatial-clustering}). This separates two modelling choices: how many ties a rule creates and how the chosen pairs close triangles.
+\PaperFigure{group-spatial-degree}{Archived group mean degree at cap 100. Uniform-square and Gaussian homes govern the nearest-nomination curves. The random and hard-cap curves use the same group sizes.}
+\PaperFigure{group-spatial-clustering}{Archived mean within-layer clustering at cap 100. Each curve is computed on the group projection alone.}
+
+The radius governs isolation in the archived homogeneous-household grid. At $\mu=2$, the 50-metre rule has \NeighbourTwoDegree{} linked households on average and a \NeighbourTwoNone{} share of households without neighbours, close to the Poisson value \NeighbourTwoPoisson{} (Figure~\ref{fig:neighbour-density}). Removing the radius makes the nearest-neighbour rule much less sensitive to density in this setting. Clustering among households with a defined coefficient changes relatively little across the grid (Figure~\ref{fig:neighbour-clustering}). A radius can thus change who has any eligible alter while preserving substantial local closure among those with enough neighbours.
+\PaperFigure{neighbour-density}{Household degree and isolation in the archived density grid. The right panel includes the Poisson zero-count prediction. Households are the vertices in both panels.}
+\PaperFigure{neighbour-clustering}{Archived clustering among households with at least two household neighbours. The ordinate is restricted to show variation across densities.}
+
+In a separate pre-specified test, the companion study's group rules and merged-network summaries met their tolerances. The nearest-home colleague check narrowly failed on clustering. The yearly Dutch neighbour degree was under-predicted in the flat-heavy population. The Danish clustering share and the analytic correction for the Dutch-series pair also missed their criteria. These companion results concern extensions and assumptions beyond the individual formulas shipped in \builtnet{} \citep{almamunpredicting2026}. They bound how far the archived curves can be carried into a new release.
+
+\subsection{Repeated ties make the three excess-closure definitions disagree}
+\label{res:closure}
+\textit{Evidence status. Existing hand-worked counterexample and release tests. This is an exploratory definitional check.}
+
+Can the package expose a disagreement that would otherwise look like a software error (Q4)? Consider a triangle whose three edges occur in both household and kin. For each ego there are four eligible pairs of incident ties and two pure-layer triangles. The text, library and tie-pair variants give excess closure of \ClosurePaper{}, \ClosureLibrary{} and \ClosureTiePair{}, respectively (Figure~\ref{fig:closure-counterexample}, Table~\ref{tab:closure}). The first becomes negative because it counts a distinct triplet once while the pure numerator counts it twice. The second can exceed one because it multiplies by the alter--alter multiplicity as well. In the third definition every pure closure is counted among the closed tie pairs, and every closed tie pair belongs to the denominator. Hence its normalised excess lies between zero and one when defined. The variants agree when dyads occur in only one layer. Choosing a convention changes the substantive meaning of the result whenever layers overlap.
+\PaperFigure{closure-counterexample}{Excess closure for the documented two-layer triangle. The shaded region marks the usual unit-interval interpretation.}
+\input{tables/closure}
+
+\subsection{Published edge counts narrow some rule readings and leave others unresolved}
+\label{res:ambiguity}
+\textit{Evidence status. The Dutch school and Danish hard-cap targets were pre-specified in the companion aggregate analysis. The two alternative Danish predictions were calculated post hoc.}
+
+Can aggregate evidence discriminate among the executable explanations (Q4)? For the 2021 Danish workplace layer, the registered hard-cap prediction gave \DanishCapped{} million undirected edges against the published \DanishPublished{} million, a \DanishCappedError\% error. The uniform-pairs calculation was similarly low. Making every nomination two-way gives \DanishTwoWay{} million, a \DanishTwoWayError\% error (Table~\ref{tab:danish}, Figure~\ref{fig:danish-aggregate}). In larger workplaces a worker would then have at least as many distinct ties as they nominate. The Danish supplement describes some workers with fewer than the nominal count after making ties two-way. The aggregate fit thus constrains the plausible rule and leaves the degree statement unresolved. Workplace size bins, the treatment of jobs as persons and registry coverage also affect the comparison \citep{cremers2025,almamunpredicting2026}.
+\input{tables/danish}
+\PaperFigure{danish-aggregate}{One published total and three predictions from workplace-size aggregates. Only the hard-cap prediction was tested under the original tolerance. The two other computations probe the discrepancy after inspection.}
+
+The Dutch primary-classmate mean was \PrimaryMeanPredicted{} predicted versus \PrimaryMeanPublished{} published, and the archived primary quantiles were each within \PrimaryMaxQuantileError{} tie. The secondary-classmate mean was \SecondaryMeanPredicted{} versus \SecondaryMeanPublished{}, and the median was \SecondaryMedianPredicted{} versus \SecondaryMedianPublished{}. Both secondary summary tests failed (Table~\ref{tab:school} and Figure~\ref{fig:school-quantiles}). The companion analysis interprets this as evidence that the open education categories pool pupils more coarsely than the categories used in the release. The source's out-degree quantiles also exceed 100, incompatible with a universal cap of 100 outgoing school nominations for the file described in the discussion paper. The separate class-cap card documents the reading from applications and can support a sensitivity analysis on other data \citep{vanderlaan2022,bos2022,almamunpredicting2026}.
+\input{tables/school}
+\PaperFigure{school-quantiles}{Predicted and published out-degree quantiles for the 2018 Dutch school layer. The same public group-size method closely tracks the primary distribution and substantially overpredicts much of the secondary distribution.}
+
+\subsection{Build and descriptor costs rise at the larger example scale}
+\label{res:runtime}
+\textit{Evidence status. Exploratory local timing of existing software examples.}
+
+What does re-running the documented workflow cost (Q5)? The existing presets generated \SmallPeople{} and \MainPeople{} people. The Dutch 2018 build took a median of \SmallDutchBuild{}\,s for the small example and \MainDutchBuild{}\,s for the main example. The default descriptors took \SmallDutchDescribe{}\,s and \MainDutchDescribe{}\,s. The population increased by a factor of \PopulationRatio{}. Build time increased by \BuildRatio{} and descriptor time by \DescriptorRatio{}, based on the stage medians. Figure~\ref{fig:timing-build}, Figure~\ref{fig:timing-descriptors} and Table~\ref{tab:stages} show the stages for all four cards. Materialising ties and evaluating descriptors have distinct costs. In particular the descriptor call includes sparse multiplication for ordinary and multilayer closure.
+\PaperFigure{timing-build}{Wall time to construct the graph. Points show medians and whiskers the observed minimum and maximum across the fixed repetitions. The time axis is logarithmic.}
+\PaperFigure{timing-descriptors}{Wall time for the default descriptor call on the graph built by each card. Points and whiskers use the same summary as the build timings. The time axis is logarithmic.}
+\input{tables/stages}
+
+Generation, measured once per repetition and reused across cards, took \SmallGeneration{}\,s and \MainGeneration{}\,s at the two scales (Table~\ref{tab:generation}, Figure~\ref{fig:timing-generation}). The larger preset changes spatial and employer settings alongside population size. These timings describe two complete workloads. A size-only scaling exponent would require varying size while controlling group sizes and edge density.
+\input{tables/generation}
+\PaperFigure{timing-generation}{Wall time for membership generation before projection. Dots are individual measurements, displaced horizontally for legibility. The line segment is the median at each scale.}
+\FloatBarrier

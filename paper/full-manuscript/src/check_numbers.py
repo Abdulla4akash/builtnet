@@ -82,6 +82,13 @@ def derive():
             numbers[head + 'Build'] = fmt(median(row[0] for row in elapsed), 2)
             numbers[head + 'Describe'] = fmt(median(row[1] for row in elapsed), 2)
 
+    small, main = (s['scales'][key] for key in ('small', 'main'))
+    numbers['PopulationRatio'] = fmt(main['people'] / small['people'], 2)
+    for i, label in enumerate(('BuildRatio', 'DescriptorRatio')):
+        def stage_median(scale):
+            return median(row[i] for row in scale['seconds']['nl-2018'])
+        numbers[label] = fmt(stage_median(main) / stage_median(small), 2)
+
     random_rows = [row for row in t['group'] if row['select'] == 'random']
     degree_error, closure_error = [], []
     for row in random_rows:

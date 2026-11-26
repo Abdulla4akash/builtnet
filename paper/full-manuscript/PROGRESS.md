@@ -8,3 +8,4 @@
 - 2026-11-26 — Generated 20 shaded-header tables from the card catalogue, package checks and saved summary results.
 - 2026-11-26 — Generated 16 figures in PDF and PNG with a common colour-blind-safe palette. Each figure has an in-text reference and caption.
 - 2026-11-26 — Completed Methods, including the operator and table contracts, catalogue approximations, preregistration status and timing design.
+- 2026-11-26 — Completed Results, with pre-specified companion checks separated from exploratory demos, discrepancies and timings.
