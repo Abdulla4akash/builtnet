@@ -10,3 +10,4 @@
 - 2026-11-26 — Completed Methods, including the operator and table contracts, catalogue approximations, preregistration status and timing design.
 - 2026-11-26 — Completed Results, with pre-specified companion checks separated from exploratory demos, discrepancies and timings.
 - 2026-11-26 — Completed Related work and the comparison of prior artefacts with builtnet.
+- 2026-11-26 — Completed Introduction, Discussion, Limitations, Conclusion and the availability statement.
